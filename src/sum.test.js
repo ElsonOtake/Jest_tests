@@ -1,18 +1,18 @@
-const sum = require('./sum');
+const sum = require('./sum.js');
 
 test('adds 1 + 2 to equal 3', () => {
   expect(sum(1, 2)).toBe(3);
 });
 
 test('object assignment', () => {
-  const data = {one: 1};
-  data['two'] = 2;
-  expect(data).toEqual({one: 1, two: 2});
+  const data = { one: 1 };
+  data.two = 2;
+  expect(data).toEqual({ one: 1, two: 2 });
 });
 
 test('adding positive numbers is not zero', () => {
-  for (let a = 1; a < 10; a++) {
-    for (let b = 1; b < 10; b++) {
+  for (let a = 1; a < 10; a += 1) {
+    for (let b = 1; b < 10; b += 1) {
       expect(a + b).not.toBe(0);
     }
   }
@@ -50,7 +50,7 @@ test('two plus two', () => {
 
 test('adding floating point numbers', () => {
   const value = 0.1 + 0.2;
-  //expect(value).toBe(0.3);           This won't work because of rounding error
+  // expect(value).toBe(0.3);           This won't work because of rounding error
   expect(value).toBeCloseTo(0.3); // This works.
 });
 
@@ -87,4 +87,3 @@ test('compiling android goes as expected', () => {
   expect(() => compileAndroidCode()).toThrow('you are using the wrong JDK');
   expect(() => compileAndroidCode()).toThrow(/JDK/);
 });
-
